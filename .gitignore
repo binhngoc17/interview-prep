@@ -4,3 +4,7 @@ dist/
 next-env.d.ts
 *.tsbuildinfo
 data/
+
+# Local secrets. .env.example stays in git.
+.env*
+!.env.example

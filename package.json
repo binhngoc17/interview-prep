@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --import tsx --test tests/validate-packs.test.ts tests/waitlist.test.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
     "validate": "node --import tsx scripts/validate-packs.ts"
   },
   "devDependencies": {

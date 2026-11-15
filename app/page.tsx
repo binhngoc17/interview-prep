@@ -1,3 +1,4 @@
+import { getSession } from "@/lib/current-user";
 import { site } from "@/lib/site";
 import { InterviewDemo } from "./components/InterviewDemo";
 import { WaitlistForm } from "./components/WaitlistForm";
@@ -134,7 +135,8 @@ const FAQ = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const session = await getSession();
   return (
     <>
       <header className="nav">
@@ -150,8 +152,11 @@ export default function Home() {
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
           </nav>
-          <a href="#waitlist" className="btn btn-primary btn-sm">
-            Join waitlist
+          <a
+            href={session ? "/app" : "/login"}
+            className="btn btn-primary btn-sm"
+          >
+            {session ? "Open app" : "Log in"}
           </a>
         </div>
       </header>
