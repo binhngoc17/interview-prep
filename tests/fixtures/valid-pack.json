@@ -1,0 +1,60 @@
+{
+  "company": "Grab",
+  "role": "Backend engineer, AI platform",
+  "level": "senior",
+  "exclusive": true,
+  "brief": "Expect one 45-minute system design round (source 1). Practice expectation: estimate tokens per second.",
+  "sources": [
+    {
+      "kind": "note",
+      "body": "Alumni debrief, Oct 2026: 45-minute system design round."
+    },
+    {
+      "kind": "url",
+      "body": "https://engineering.grab.com/example",
+      "excerpt": "We build the platform behind support bots and watch cost per request."
+    }
+  ],
+  "questions": [
+    {
+      "title": "LLM gateway for customer-support bots",
+      "prompt": "Design a gateway that routes support-bot traffic across two providers.",
+      "probes": [
+        "What happens when the primary provider times out?",
+        "How do you cap monthly cost per team?",
+        "How do you tell that answer quality dropped after fallback?"
+      ],
+      "rubric": [
+        {
+          "dimension": "requirements",
+          "whatGoodLooksLike": "Clarifies QPS, latency, and cost caps."
+        },
+        {
+          "dimension": "estimation",
+          "whatGoodLooksLike": "Estimates tokens per second and monthly spend."
+        },
+        {
+          "dimension": "architecture",
+          "whatGoodLooksLike": "Router, quota service, provider adapters."
+        },
+        {
+          "dimension": "depth",
+          "whatGoodLooksLike": "Explains streaming failover."
+        },
+        {
+          "dimension": "tradeoffs",
+          "whatGoodLooksLike": "Compares cost, latency, and quality."
+        },
+        {
+          "dimension": "communication",
+          "whatGoodLooksLike": "States assumptions out loud."
+        },
+        {
+          "dimension": "ai_concerns",
+          "whatGoodLooksLike": "Covers cost, latency, eval, and safety."
+        }
+      ],
+      "referenceArchitecture": "Client -> gateway -> quota check -> router -> provider A or B."
+    }
+  ]
+}

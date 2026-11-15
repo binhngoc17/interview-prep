@@ -1,0 +1,19 @@
+---
+description: Write a company interview pack as JSON and validate it before committing
+alwaysApply: true
+---
+
+# Interview packs
+
+When an admin asks for a company pack, write one JSON file in this repo. Do not add an admin app.
+
+- Path: `content/packs/<pack-id>/pack.json`. `<pack-id>` is kebab-case, 1–80 characters, such as `grab-ai-platform-senior`.
+- Require a company, a role, a level (`mid`, `senior`, or `staff`), and 1–5 sources. A source is a pasted note or an `http`/`https` URL. With no source, ask for one and do not write the file.
+- `exclusive` defaults to true. Set false only when the admin says the pack is free.
+- Write 1–3 questions. Each has a title, a prompt, 3–8 probes, a reference architecture, and these rubric dimensions in order: requirements, estimation, architecture, depth, tradeoffs, communication, ai_concerns.
+- Write in English. Write original practice prompts. State a company fact only when a source supports it. Label anything else `Practice expectation:`.
+- A URL source stores the URL in `body` and a short reviewed quote in `excerpt`.
+- Run `npm test` and fix the file until it passes.
+- Do not commit until the admin asks. Publishing is a pull request merged to the default branch.
+
+Full schema: `docs/superpowers/specs/2026-11-14-admin-company-packs-design.md`.
